@@ -1,47 +1,58 @@
+# iPhone iOS Swift based Bible Widget
 
-# SwiftUI iOS App for Bible Widget - Usage Instructions
+A SwiftUI iOS App with a Home Screen Widget that displays daily bilingual (Korean/English) Bible verses. This project demonstrates a clean MVVM architecture with a dedicated Data Service and a modular Widget implementation.
 
-This project contains the source code for a SwiftUI iOS App with a Home Screen Widget, featuring bilingual (Korean/English) Bible verses.
+## 📂 Project Structure
+
+### **App Entry**
+- **`BibleWidgetApp.swift`**: The main SwiftUI App entry point (`@main`).
+- **`ContentView.swift`**: The main view for the app.
+
+### **Widget**
+- **`DailyVerseWidget.swift`**: The Widget configuration and entry point.
+- **`Provider.swift`**: The `TimelineProvider` that determines when the widget updates.
+- **`WidgetEntryView.swift`**: The SwiftUI view used to render the widget interface.
+
+### **Data Layer**
+- **`BibleDataService.swift`**: Singleton service responsible for loading and parsing `verses.json`.
+- **`BibleModel.swift`**: Contains the `Verse` data model struct.
+- **`BibleViewModel.swift`**: View model for the main app, handles data prep for the UI.
+- **`verses.json`**: The local JSON data source containing verses (dates matched by `MM-dd`).
 
 ## 🚀 Setup Instructions (Mac + Xcode)
 
-Since you are running this on Windows, you will need to transfer these files to a Mac with Xcode installed.
+Since this project contains code generated/edited on Windows, follow these steps to run it on a Mac:
 
-### Step 1: Create a New Project
-1.  Open **Xcode**.
-2.  Create a new **App** project.
-3.  Name it `VibeCodingBible` (or similar).
-4.  Ensure Interface is **SwiftUI** and Language is **Swift**.
+1.  **Create Xcode Project**: Create a new iOS App in Xcode named `VibeCodingBible` (or similar).
+2.  **Add Widget Target**: Go to File > New > Target > Widget Extension. Name it `BibleWidget`. Uncheck "Include Configuration App Intent".
+3.  **Copy Files**: Replace the default files with the ones from this repository.
+4.  **⚠️ CRITICAL: Target Membership**:
+    - To ensure the app and widget can both see the data, you must set the "Target Membership" correctly.
+    - **Select these files** in Xcode:
+        - `BibleModel.swift`
+        - `BibleDataService.swift`
+        - `verses.json`
+    - **Open the Right Panel** (File Inspector).
+    - **Check the boxes** for **BOTH** your Main App Target AND the Widget Extension Target.
 
-### Step 2: Add Widget Extension
-1.  In Xcode, go to **File > New > Target...**
-2.  Search for **Widget Extension**.
-3.  Name it `BibleWidget`.
-4.  **Important**: Uncheck "Include Configuration App Intent" if you want a simple static widget (our code is static).
+## � Customization
 
-### Step 3: Copy Files
-Copy the contents of the generated files into your Xcode project:
+- **Add Verses**: Update `verses.json`. Ensure the date format matches `MM-dd`.
+- **Styling**: Edit `WidgetEntryView.swift` to change the widget's appearance/colors.
+- **Logic**: Modify `Provider.swift` to change how often the timeline updates.
 
-| File | Destination in Xcode | Target Membership |
-| :--- | :--- | :--- |
-| `verses.json` | Main App Folder | **Check both** `VibeCodingBible` AND `BibleWidget` targets |
-| `Verse.swift` | Main App Folder | **Check both** `VibeCodingBible` AND `BibleWidget` targets |
-| `BibleViewModel.swift` | Main App Folder | Check `VibeCodingBible` |
-| `ContentView.swift` | Main App Folder | Check `VibeCodingBible` |
-| `BibleWidget.swift` | `BibleWidget` Folder | Check `BibleWidget` |
 
-### ⚠️ Crucial Step: Target Membership
-For `verses.json` and `Verse.swift` to work in **both** the main app and the widget:
-1.  Select the file in the Project Navigator (left sidebar).
-2.  Open the **File Inspector** (right sidebar, generic document icon).
-3.  Under **Target Membership**, make sure **BOTH** your App target and your Widget Extension target are checked.
 
-### Step 4: Run
-1.  Select the **App** scheme and run on a Simulator. You should see the App with today's verse.
-2.  Go to the Home Screen in the Simulator.
-3.  Long press -> `+` button -> Search for your App -> Add the Widget.
-4.  The widget should display the verse!
 
-## 📝 Customization
--   **Add more verses**: Edit `verses.json`. Ensure the date format matches `MM-dd`.
--   **Design**: Modify `ContentView.swift` or `BibleWidget.swift` to change colors/fonts.
+
+## 📱 Demo Test Instructions
+Install Scriptable: Download the Scriptable app from the App Store.
+
+Copy the Code: Copy the contents of the scriptable_code.js (or .json) file.
+
+Create New Script: Open the Scriptable app and press the "+" icon to create a new script.
+
+Paste & Save: Paste the copied code into the editor and give it a name (e.g., "Daily Bible").
+
+Add Widget: Go to your iPhone Home Screen, add a Scriptable widget, and select your script from the widget settings.
+  

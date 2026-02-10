@@ -8,16 +8,20 @@ A SwiftUI iOS App with a Home Screen Widget that displays daily bilingual (Korea
 - **`BibleWidgetApp.swift`**: The main SwiftUI App entry point (`@main`).
 - **`ContentView.swift`**: The main view for the app.
 
-### **Widget**
-- **`DailyVerseWidget.swift`**: The Widget configuration and entry point.
-- **`Provider.swift`**: The `TimelineProvider` that determines when the widget updates.
-- **`WidgetEntryView.swift`**: The SwiftUI view used to render the widget interface.
+
 
 ### **Data Layer**
 - **`BibleDataService.swift`**: Singleton service responsible for loading and parsing `verses.json`.
 - **`BibleModel.swift`**: Contains the `Verse` data model struct.
 - **`BibleViewModel.swift`**: View model for the main app, handles data prep for the UI.
 - **`verses.json`**: The local JSON data source containing verses (dates matched by `MM-dd`).
+
+
+### **Widget**
+- **`DailyVerseWidget.swift`**: The Widget configuration and entry point.
+- **`Provider.swift`**: The `TimelineProvider` that determines when the widget updates.
+- **`WidgetEntryView.swift`**: The SwiftUI view used to render the widget interface.
+  
 
 ## 🚀 Setup Instructions (Mac + Xcode)
 

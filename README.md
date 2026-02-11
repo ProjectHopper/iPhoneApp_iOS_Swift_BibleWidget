@@ -27,7 +27,7 @@ A SwiftUI iOS App with a Home Screen Widget that displays daily bilingual (Korea
 
 Since this project contains code generated/edited on Windows, follow these steps to run it on a Mac:
 
-1.  **Create Xcode Project**: Create a new iOS App in Xcode named `VibeCodingBible` (or similar).
+1.  **Create Xcode Project**: Create a new iOS App in Xcode named `Bible_ios_app` (or similar).
 2.  **Add Widget Target**: Go to File > New > Target > Widget Extension. Name it `BibleWidget`. Uncheck "Include Configuration App Intent".
 3.  **Copy Files**: Replace the default files with the ones from this repository.
 4.  **⚠️ CRITICAL: Target Membership**:
